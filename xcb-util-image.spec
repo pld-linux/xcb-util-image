@@ -45,7 +45,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki XCB util-image
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libxcb-devel >= 1.4
-BuildRequires:	xcb-util-devel >= 0.3.8
+Requires:	xcb-util-devel >= 0.3.8
 
 %description devel
 Header files for XCB util-image library.
