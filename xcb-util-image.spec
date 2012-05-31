@@ -1,20 +1,20 @@
 Summary:	XCB util-image module
 Summary(pl.UTF-8):	Moduł XCB util-image
 Name:		xcb-util-image
-Version:	0.3.8
+Version:	0.3.9
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	245a96041f373b05764148e52d2e0211
+# Source0-md5:	fabb80b36490b00fc91289e2c7f66770
 URL:		http://xcb.freedesktop.org/XcbUtil/
-BuildRequires:	gperf
 BuildRequires:	libxcb-devel >= 1.4
-BuildRequires:	m4
 BuildRequires:	pkgconfig
 BuildRequires:	xcb-proto >= 1.6
-BuildRequires:	xcb-util-devel >= 0.3.8
+BuildRequires:	xcb-util-devel >= 0.3.9
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.8
+Requires:	libxcb >= 1.4
+Requires:	xcb-util >= 0.3.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,7 +45,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki XCB util-image
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libxcb-devel >= 1.4
-Requires:	xcb-util-devel >= 0.3.8
+Requires:	xcb-util-devel >= 0.3.9
 
 %description devel
 Header files for XCB util-image library.
@@ -95,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libxcb-image.so
 %{_libdir}/libxcb-image.la
+%{_includedir}/xcb/xcb_bitops.h
 %{_includedir}/xcb/xcb_image.h
 %{_includedir}/xcb/xcb_pixel.h
 %{_pkgconfigdir}/xcb-image.pc
