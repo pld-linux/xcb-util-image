@@ -2,7 +2,7 @@ Summary:	XCB util-image module
 Summary(pl.UTF-8):	Moduł XCB util-image
 Name:		xcb-util-image
 Version:	0.3.9
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
