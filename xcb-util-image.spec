@@ -1,18 +1,20 @@
 Summary:	XCB util-image module
 Summary(pl.UTF-8):	Moduł XCB util-image
 Name:		xcb-util-image
-Version:	0.4.0
-Release:	2
+Version:	0.4.1
+Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	08fe8ffecc8d4e37c0ade7906b3f4c87
-URL:		http://xcb.freedesktop.org/XcbUtil/
+Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.xz
+# Source0-md5:	a67bfac2eff696170259ef1f5ce1b611
+URL:		https://xcb.freedesktop.org/XcbUtil/
 BuildRequires:	libxcb-devel >= 1.4
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xcb-proto >= 1.6
 BuildRequires:	xcb-util-devel >= 0.4.0
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.8
+BuildRequires:	xz
 Requires:	libxcb >= 1.4
 Requires:	xcb-util >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -79,6 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libxcb-image.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -87,14 +92,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog NEWS README
+%doc ChangeLog NEWS README.md
 %attr(755,root,root) %{_libdir}/libxcb-image.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libxcb-image.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libxcb-image.so
-%{_libdir}/libxcb-image.la
 %{_includedir}/xcb/xcb_bitops.h
 %{_includedir}/xcb/xcb_image.h
 %{_includedir}/xcb/xcb_pixel.h
